@@ -7,7 +7,7 @@ import datetime
 import threading
 
 VERSION		= open("VERSION", "r").read().strip()
-timeout 	= 3
+timeout 	= 5
 VERBOSE 	= False
 #sema		= Semaphore(value=1)
 
@@ -110,7 +110,7 @@ def usage():
     print "\t-t [target ip]"
     print "\t-p [port] \t\t\te.g. ( -p 25 // -p 22,23,24,25 // -p 0-1024 )"
     print "\t-v \t\t\t\tVerbose output"
-    print "\t--timeout [timeout in ms]"
+    print "\t--timeout [timeout in ms (default=5s]"
     print ""
 
 def print_results(target):
