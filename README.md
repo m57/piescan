@@ -13,7 +13,7 @@ root@ip # ./piescan.py
 
           Usage: ./piescan.py -t [targets] -p [ports] [options]
 
-                    Options:
+          Options:
 
         -t [target ip]
         -p [port]                       e.g. ( -p 25 // -p 22,23,24,25 // -p 0-1024 )
