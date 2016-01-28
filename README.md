@@ -8,26 +8,30 @@ root@ip # ./piescan.py
 
           piescan v1.0 -- https://www.twitter.com/@_x90__
         ---------------------------------------------------
+            A simple, fast, lightweight TCP/UDP scanner
 
-                    A simple port scanner
+	Usage: ./piescan.py -t [targets] -p [ports] [options]
 
-          Usage: ./piescan.py -t [targets] -p [ports] [options]
+	Options:
 
-          Options:
+	        -t         [target ip]                   
+        	-p         [port]                         Examples: ( -p 25 || -p 22,23,24,25 || -p 0-1024 )
+        	-s[TU]     Scan type ( default = -sT )    Examples: ( -sT : TCP || -sU : UDP )    
+        	-v         Verbose output                
+        	--timeout  [timeout in ms]               
 
-                    -t [target ip]
-                    -p [port]                       e.g. ( -p 25 // -p 22,23,24,25 // -p 0-1024 )
-                    -v                              Verbose output
-                    --timeout [timeout in ms]
+	Examples:
+
+	        ./piescan.py -sT -t 127.0.0.1 -p 0-65535 -v  - Do a verbose TCP scan of all ports on 127.0.0.1
+	        ./piescan.py -sU -t 127.0.0.1 -p 0-100       - Do a UDP scan of the first 100 ports on 127.0.0.1
 
 # Example Output
 
-root@x250-arch:[piescan] # ./piescan.py -t 127.0.0.1 -p 0-65535                                                                                                                                                    
+root@ip # ./piescan.py -t 127.0.0.1 -p 0-65535                                                                                                                                                    
 
           piescan v1.0 -- https://www.twitter.com/@_x90__
         ---------------------------------------------------
-
-                 A simple port scanner
+              A simple, fast, lightweight port scanner
 
           [ 22:23:43 - 27/01/2016 ] Scan started - Host: 127.0.0.1
 
