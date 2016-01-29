@@ -119,7 +119,8 @@ def udp_scan((target, port)):
 		ports_ident["open"].append(port)
 		
     except socket.timeout:
-        ports_ident["open|filtered"].append(port)
+	if port not in ports_ident["closed"]:
+	        ports_ident["open|filtered"].append(port)
         
     conn.close()
 
