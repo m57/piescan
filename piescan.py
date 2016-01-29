@@ -267,7 +267,8 @@ def sniffer_thread(target):
 
         # check for the type 3 and code and within our target subnet
         if icmp_header.code == 3 and icmp_header.type == 3 and src_addr == target:
-		ports_ident["closed"].append(dst_port)
+		if port not in ports_ident["closed"]:
+			ports_ident["closed"].append(dst_port)
 
 if __name__ == "__main__":
 
