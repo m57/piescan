@@ -83,13 +83,13 @@ def tcp_scan((target, port)):
 	# DATA RECIEVED - SYN ACK
         if (ret==0):
             if VERBOSE:
-                print "[%s] %s - %d/tcp open (SYN-ACK packet)" % (date_time(), target, port)
+                sys.stdout.write("[%s] %s - %d/tcp open (SYN-ACK packet)\n" % (date_time(), target, port))
             ports_ident["open"].append(port)
 	
 	# RST RECIEVED - PORT CLOSED
 	elif (ret == 111):
             if VERBOSE:
-                print "[%s] %s - %d/tcp closed (RST packet)" % (date_time(), target, port)
+                sys.stdout.write("[%s] %s - %d/tcp closed (RST packet)\n" % (date_time(), target, port))
             ports_ident["closed"].append(port)
 	
 	# ERR CODE 11 - TIMEOUT
