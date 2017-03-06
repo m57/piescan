@@ -61,7 +61,7 @@ class ICMP(ctypes.Structure):
 def banner():
 
 	print ""
-	print "\t  %spiescan v%s%s -- %shttps://www.twitter.com/@_x90__%s" % ("\033[1;32m", VERSION, "\033[0m", "\033[1;31m", "\033[0m")
+	print "\t  %spiescan v%s%s -- %shttps://www.twitter.com/@__mx90%s" % ("\033[1;32m", VERSION, "\033[0m", "\033[1;31m", "\033[0m")
 	print "\t---------------------------------------------------"
 	print "\t    A simple, fast, lightweight TCP/UDP scanner"
 	print ""
