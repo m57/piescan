@@ -6,7 +6,7 @@ A really simple port scanner, for times when you cant use nmap.
 
 root@ip # ./piescan.py 
 
-          piescan v1.0 -- https://www.twitter.com/@_x90__
+          piescan v1.0 -- https://www.twitter.com/@_g0dmode
         ---------------------------------------------------
             A simple, fast, lightweight TCP/UDP scanner
 
@@ -29,7 +29,7 @@ root@ip # ./piescan.py
 
 root@ip # ./piescan.py -t 127.0.0.1 -p 0-65535                                                                                                                                                    
 
-          piescan v1.0 -- https://www.twitter.com/@_x90__
+          piescan v1.0 -- https://www.twitter.com/@_g0dmode
         ---------------------------------------------------
               A simple, fast, lightweight port scanner
 
