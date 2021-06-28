@@ -6,42 +6,67 @@ A really simple port scanner, for times when you cant use nmap.
 
 ```root@ip # ./piescan.py 
 
-          piescan v1.0 -- https://www.twitter.com/@_g0dmode
+          piescan v2.0 -- https://www.twitter.com/@_g0dmode
         ---------------------------------------------------
             A simple, fast, lightweight TCP/UDP scanner
 
-	Usage: ./piescan.py -t [targets] -p [ports] [options]
+Usage: piescan.py -t [targets] -p [ports] [options]
 
-	Options:
+Options:
 
-	        -t         [target ip]                   
-        	-p         [port]                         Examples: ( -p 25 || -p 22,23,24,25 || -p 0-1024 )
-        	-s[TU]     Scan type ( default = -sT )    Examples: ( -sT : TCP || -sU : UDP )    
-        	-v         Verbose output                
-        	--timeout  [timeout in ms]               
+        -t         [target ip]
+        -p         [port]                         Examples: ( -p 25 || -p 22,23,24,25 || -p 0-1024 )
+        -s[TU]     Scan type ( default = -sT )    Examples: ( -sT : TCP || -sU : UDP )
+        --threads  Number of threads (Default=10)
+        -v         Verbose output
+        --timeout  [timeout in ms]
 
-	Examples:
+Examples:
 
-	        ./piescan.py -sT -t 127.0.0.1 -p 0-65535 -v  - Do a verbose TCP scan of all ports on 127.0.0.1
-	        ./piescan.py -sU -t 127.0.0.1 -p 0-100       - Do a UDP scan of the first 100 ports on 127.0.0.1
+        piescan.py -sT -t 127.0.0.1 -p 0-65535 -v  - Do a verbose TCP scan of all ports on 127.0.0.1
+        piescan.py -sU -t 127.0.0.1 -p 0-100       - Do a UDP scan of the first 100 ports on 127.0.0.1
 ```
-# Example Output
-```
-root@ip # ./piescan.py -t 127.0.0.1 -p 0-65535                                                                                                                                                    
 
-          piescan v1.0 -- https://www.twitter.com/@_g0dmode
+# Example TCP scan of some specific ports
+
+```
+# piescan.py -t google.com -v -p 80,443,21,22
+
+          piescan v2.0 -- https://www.twitter.com/@_g0dmode
         ---------------------------------------------------
-              A simple, fast, lightweight port scanner
+            A simple, fast, lightweight TCP/UDP scanner
 
-          [ 22:23:43 - 27/01/2016 ] Scan started - Host: 127.0.0.1
+[28/06/2021 21:10:14] Scan started - Host: google.com (172.217.169.46)
+[28/06/2021 21:10:14] 172.217.169.46 - 443/tcp open (SYN-ACK packet)
+[28/06/2021 21:10:14] 172.217.169.46 - 80/tcp open (SYN-ACK packet)
 
-          Port         State        Reason      
-          -----------------------------------------------------
-          22/tcp       open         syn-ack     
-          6340/tcp     open         syn-ack     
-          24/tcp       filtered     timeout     
+Port            State           Reason
+-----------------------------------------------------
+22/tcp          filtered        timeout
+21/tcp          filtered        timeout
+443/tcp         open            syn-ack
+80/tcp          open            syn-ack
 
-          65533 closed ports.
+[28/06/2021 21:10:19] Scan finished.
+```
 
-          [ 22:23:51 - 27/01/2016 ] Scan finished.
+# Example UDP scan of top 1000 ports
+
+```
+# sudo python2 piescan.py -sU -t 1.uk.pool.ntp.org -v --timeout 500 --threads 20
+[sudo] password for xxx:
+
+          piescan v2.0 -- https://www.twitter.com/@_g0dmode
+        ---------------------------------------------------
+            A simple, fast, lightweight TCP/UDP scanner
+
+[28/06/2021 21:13:44] Scan started - Host: 1.uk.pool.ntp.org (162.159.200.1)
+[28/06/2021 21:13:45] 162.159.200.1 - 123/udp open (Data recieved)
+
+Port            State           Reason
+-----------------------------------------------------
+123/udp         open            Data recieved
+909 open|filtered ports.
+
+[28/06/2021 21:14:07] Scan finished.
 ```

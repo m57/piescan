@@ -1,0 +1,5 @@
+2.0
+----
+* Added support for python3 (Tested on Python 3.8.5 (default, Jan 27 2021, 15:41:15))
+* Cleaned up thread creation structure
+* Changed output styling
