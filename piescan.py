@@ -355,6 +355,8 @@ if __name__ == "__main__":
 		sys.exit(0)
 
 	if "-sU" in sys.argv:
+		if os.geteuid() != 0:
+			sys.exit("You need root permissions to do a UDP scan.")
 		SCAN_TYPE = "UDP"
 
 	if "--timeout" in sys.argv:
